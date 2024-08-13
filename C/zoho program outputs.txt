@@ -1,0 +1,175 @@
+1) #include<stdio.h>
+static int i=25;
+void func()
+{
+	printf("%d",i);
+	return;
+}
+int main()
+{
+	static int i;
+	printf("%d ",i);
+	func();
+	return 0;
+}
+output
+0 25
+
+2)#include<stdio.h>
+#include<string.h>
+int main()
+{
+int i,k;
+for(i=0,k=0;(i<5&&k<3);i++,k++)
+{
+	printf("%d ",i);
+}
+	return 0;
+}
+
+output
+0 1 2
+
+3)#include<stdio.h>
+#include<string.h>
+int func(int i)
+{
+	if(i%2)
+	
+		return i++;
+	
+	else
+	return func(func(i-1));
+}
+int fun(int i)
+{
+	return i++;
+}
+int main()
+{
+	printf("%d %d %d",func(200),func(201),fun(10));
+
+	return 0;
+}
+output
+199 201 10
+//return i++ returns i and not i+1
+
+
+
+4)#include<stdio.h>
+#include<string.h>
+
+int main(void)
+{
+	char buf[10]={1,2,3,4,5,6,7,8};
+	char p=(buf+1)[5];
+	printf("%d ",p);
+
+	return 0;
+}
+
+output
+7
+// buf+1[5] === bud+1+5==buf[6]
+
+
+5)#include<stdio.h>
+#include<string.h>
+static int fn(int x,int y){
+	return x<<y;
+}
+int main(void)
+{
+	int n=0,a=3,b=8;
+	while(n<=fn(b,a))
+	{
+		n++;
+	}
+	printf("%d",n);
+}
+
+output
+65
+//do left shift
+
+6)#include<stdio.h>
+#include<string.h>
+void fun(int **p)
+{
+	static int q=10;
+	*p=&q;
+}
+int main()
+{
+	int r=20;
+	int *p=&r;
+	fun(&p);
+	printf("%d %d ",*p,r);
+	return 0; 
+}
+output
+10 20
+
+
+
+7)#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+	static int array[]={10,20,30,40,50};
+	printf("%d %d ",*array,*(array+3)* *array));
+	return 0; 
+}
+
+output
+10 400
+//array points to array[0]
+
+
+
+8)#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    char str1[]="IncludeHelp", str2[]="Com";
+	printf("%s",str1+strlen(str2));
+	return 0; 
+}
+
+output
+ludeHelp
+
+9)#include<stdio.h>
+#include<string.h>
+#define fn(x)((x) &(x-1))
+int main()
+{
+    
+	printf("%d",fn(12)*fn(14)*fn(16));
+	return 0; 
+}
+
+output
+0
+
+
+10)#include<stdio.h>
+#include<string.h>
+void change(int *a,int b)
+{
+	*a=10;
+	b=10;
+}
+int main()
+{
+	int a=100,b=50;
+	change(&a,b);
+    
+	printf("%d %d",a,b);
+	return 0; 
+}
+output
+10 50
