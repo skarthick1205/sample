@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 hello my name
+=======
+my hai hello my name
+>>>>>>> 709445f85d0052575d592386d827f791cabfcd7d
